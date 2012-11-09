@@ -1,33 +1,27 @@
 require "imaginary-client/version"
-require "active_resource"
+require 'httmultiparty'
 
 module Imaginary
-  module Client
-    class Base < ActiveResource::Base
-      self.site = 'http://imaginary-mans.herokuapp.com/api/'
-      self.user = 'zomg'
-      self.password = 'zomg'
-    end
+  class Client
+    include HTTMultiParty
 
-    class Bucket < Base
-      def images(scope = :all)
-        Image.find(scope, params: { bucket_id: self.id })
+    class << self
+      def configure(url, user = nil, password = nil)
+        base_uri url
+        basic_auth user, password
       end
 
-      def image(id)
-        images(id)
-      end
-    end
-
-    class Image < Base
-      self.site = 'http://imaginary-mans.herokuapp.com/api/buckets/:bucket_id'
-
-      def bucket
-        Bucket.find(self.prefix_options[:bucket_id])
+      def create_bucket(name)
+        post('/api/buckets', body: { bucket: {
+          name: name
+        }})
       end
 
-      def bucket=(bucket)
-        self.prefix_options[:bucket_id] = bucket.id
+      def add_image(bucket_id, data, name = nil)
+        post("/api/buckets/#{bucket_id}/images", body: { image: {
+          name: name,
+          image: data
+        }})
       end
     end
   end
