@@ -1,6 +1,6 @@
 # Imaginary::Client
 
-TODO: Write a gem description
+    client = Imaginary::Client.new('http://imaginary.dev/', 'zomg', 'zomg')
 
 ## Installation
 
