@@ -5,21 +5,23 @@ module Imaginary
   class Client
     include HTTMultiParty
 
-    def initialize(url, user = nil, password = nil)
+    def initialize(url, options = {})
       @base_url = url
-      @auth = { username: user, password: password }
+      @auth = { username: options[:username], password: options[:password] }
+      @bucket = options[:bucket]
     end
 
-    def create_bucket(name)
-      self.class.post("#{@base_url}/api/buckets", basic_auth: @auth, body: { bucket: {
-        name: name
+    def add_image_from_file(file, name = nil)
+      self.class.post("#{@base_url}/api/buckets/#{@bucket}/images", basic_auth: @auth, body: { image: {
+        name: name,
+        image: file
       }})
     end
 
-    def add_image(bucket_id, data, name = nil)
-      self.class.post("/api/buckets/#{bucket_id}/images", basic_auth: @auth, body: { image: {
+    def add_image_from_url(url, name = nil)
+      self.class.post("#{@base_url}/api/buckets/#{@bucket}/images", basic_auth: @auth, body: { image: {
         name: name,
-        image: data
+        image_url: url
       }})
     end
   end

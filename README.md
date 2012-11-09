@@ -1,6 +1,7 @@
 # Imaginary::Client
 
-    client = Imaginary::Client.new('http://imaginary.dev/', 'zomg', 'zomg')
+    client = Imaginary::Client.new('http://imaginary.dev/',
+      bucket: 1, username: 'zomg', password: 'zomg')
 
 ## Installation
 
