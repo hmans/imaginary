@@ -24,6 +24,17 @@ describe Imaginary::Client do
     end
   end
 
+  describe '#add_image_from_file' do
+    it "should add the image to the server and return its name" do
+      FakeWeb.register_uri :post,
+        "http://some_user:123secret@imaginary.test.org//api/buckets/some_bucket/images.json",
+        body: '{"name": "hmans"}',
+        content_type: 'application/json; charset=utf-8'
+
+      client.add_image_from_file(File.new('./spec/files/hmans.jpg'), 'hmans').should == 'hmans'
+    end
+  end
+
   describe '#image_url' do
     context 'when client is configured to use a secret' do
       subject { client.image_url('some_image') }
