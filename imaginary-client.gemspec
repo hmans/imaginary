@@ -20,4 +20,5 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'httmultiparty', '>= 0.3.8'
 
   gem.add_development_dependency 'rspec'
+  gem.add_development_dependency 'fakeweb'
 end

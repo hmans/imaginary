@@ -12,8 +12,13 @@ module Imaginary
       @secret = options[:secret]
     end
 
+    def post(url, params)
+      params[:basic_auth] ||= @auth
+      self.class.post(url, params)
+    end
+
     def add_image_from_file(file, name = nil)
-      r = self.class.post("#{@base_url}/api/buckets/#{@bucket}/images", basic_auth: @auth, body: { image: {
+      r = post("#{@base_url}/api/buckets/#{@bucket}/images.json", body: { image: {
         name: name,
         image: file
       }})
@@ -26,7 +31,7 @@ module Imaginary
     end
 
     def add_image_from_url(url, name = nil)
-      r = self.class.post("#{@base_url}/api/buckets/#{@bucket}/images", basic_auth: @auth, body: { image: {
+      r = post("#{@base_url}/api/buckets/#{@bucket}/images.json", body: { image: {
         name: name,
         image_url: url
       }})
