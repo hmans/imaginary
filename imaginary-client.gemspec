@@ -8,9 +8,9 @@ Gem::Specification.new do |gem|
   gem.version       = Imaginary::VERSION
   gem.authors       = ["Hendrik Mans"]
   gem.email         = ["hendrik@mans.de"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = %q{Client gem for Imaginary.}
+  gem.summary       = %q{Client gem for Imaginary.}
+  gem.homepage      = "https://github.com/hmans/imaginary"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
