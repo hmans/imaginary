@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in imaginary-client.gemspec
+# Specify your gem's dependencies in imaginary.gemspec
 gemspec

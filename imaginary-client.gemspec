@@ -1,11 +1,11 @@
 # -*- encoding: utf-8 -*-
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'imaginary-client/version'
+require 'imaginary/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = "imaginary-client"
-  gem.version       = Imaginary::Client::VERSION
+  gem.name          = "imaginary"
+  gem.version       = Imaginary::VERSION
   gem.authors       = ["Hendrik Mans"]
   gem.email         = ["hendrik@mans.de"]
   gem.description   = %q{TODO: Write a gem description}

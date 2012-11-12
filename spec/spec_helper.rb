@@ -3,6 +3,6 @@ require 'bundler/setup'
 
 require 'fakeweb'
 
-require 'imaginary-client'
+require 'imaginary'
 
 FakeWeb.allow_net_connect = false

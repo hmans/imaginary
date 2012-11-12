@@ -7,7 +7,7 @@
 
 Add this line to your application's Gemfile:
 
-    gem 'imaginary-client'
+    gem 'imaginary'
 
 And then execute:
 
@@ -15,7 +15,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install imaginary-client
+    $ gem install imaginary
 
 ## Usage
 

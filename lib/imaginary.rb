@@ -1,4 +1,4 @@
-require "imaginary-client/version"
+require "imaginary/version"
 require 'httmultiparty'
 
 module Imaginary
