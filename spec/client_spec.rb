@@ -16,7 +16,7 @@ describe Imaginary::Client do
   describe '#add_image_from_url' do
     it "should add the image to the server and return its name" do
       FakeWeb.register_uri :post,
-        "http://some_user:123secret@imaginary.test.org//api/buckets/some_bucket/images.json",
+        "http://some_user:123secret@imaginary.test.org/buckets/some_bucket/images.json",
         body: '{"name": "kitten"}',
         content_type: 'application/json; charset=utf-8'
 
@@ -27,7 +27,7 @@ describe Imaginary::Client do
   describe '#add_image_from_file' do
     it "should add the image to the server and return its name" do
       FakeWeb.register_uri :post,
-        "http://some_user:123secret@imaginary.test.org//api/buckets/some_bucket/images.json",
+        "http://some_user:123secret@imaginary.test.org/buckets/some_bucket/images.json",
         body: '{"name": "hmans"}',
         content_type: 'application/json; charset=utf-8'
 

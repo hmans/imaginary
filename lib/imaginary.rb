@@ -18,7 +18,7 @@ module Imaginary
     end
 
     def add_image_from_file(file, name = nil)
-      r = post("#{@base_url}/api/buckets/#{@bucket}/images.json", body: { image: {
+      r = post("#{@base_url}buckets/#{@bucket}/images.json", body: { image: {
         name: name,
         image: file
       }})
@@ -31,7 +31,7 @@ module Imaginary
     end
 
     def add_image_from_url(url, name = nil)
-      r = post("#{@base_url}/api/buckets/#{@bucket}/images.json", body: { image: {
+      r = post("#{@base_url}buckets/#{@bucket}/images.json", body: { image: {
         name: name,
         image_url: url
       }})
