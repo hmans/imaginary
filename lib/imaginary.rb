@@ -17,6 +17,13 @@ module Imaginary
       self.class.post(url, params)
     end
 
+    # Uploads an image from a file (IO) and returns the name assigned to
+    # it by the Imaginary Server.
+    #
+    # Example:
+    #
+    #   client.add_image_from_file File.read('test.jpg')
+    #
     def add_image_from_file(file, name = nil)
       r = post("#{@base_url}buckets/#{@bucket}/images.json", body: { image: {
         name: name,
