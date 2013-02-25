@@ -53,11 +53,13 @@ module Imaginary
     def image_url(name, options = nil)
       parts = ['x', @bucket]
 
-      if options
+      unless options.nil?
         if options.is_a?(String)
           parts << options
         elsif options.is_a?(Array)
           parts += options
+        elsif options.is_a?(Hash)
+          parts += options.to_a
         else
           raise "Invalid options."
         end
