@@ -45,5 +45,7 @@ describe Imaginary::Client do
       subject { client_without_secret.image_url('some_image') }
       it { should == 'http://imaginary.test.org/x/some_bucket/some_image' }
     end
+    
+    it "uses cdn_base_url if given"
   end
 end

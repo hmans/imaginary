@@ -10,6 +10,7 @@ module Imaginary
       @auth = { username: options[:username], password: options[:password] }
       @bucket = options[:bucket]
       @secret = options[:secret]
+      @cdn_base_url = options[:cdn_base_url]
     end
 
     def post(url, params)
@@ -78,7 +79,7 @@ module Imaginary
         path << "-#{signature}"
       end
 
-      @base_url + path
+      (@cdn_base_url || @base_url) + path
     end
   end
 end
