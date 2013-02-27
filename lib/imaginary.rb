@@ -23,7 +23,7 @@ module Imaginary
     #
     # Example:
     #
-    #   client.add_image_from_file File.read('test.jpg')
+    #   client.add_image_from_file File.open('test.jpg')
     #
     def add_image_from_file(file, name = nil)
       r = post("#{@base_url}buckets/#{@bucket}/images.json", body: { image: {
